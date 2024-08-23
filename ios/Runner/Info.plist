@@ -2,6 +2,50 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+	<dict>
+	<key>CFBundleURLSchemes</key>
+	<array>
+		<string>1294717391879664</string>
+	</array>
+	</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>1294717391879664</string>
+	<key>FacebookClientToken</key>
+	<string>e58f0bfe0c15a64363d9a69632a097f5</string>
+	<key>FacebookDisplayName</key>
+	<string>Software lab Assignment</string>
+
+	<key>CLIENT_ID</key>
+	<string>19508386122-tsohkro0rfei7eiciocb2ccprg0vph9j.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.19508386122-tsohkro0rfei7eiciocb2ccprg0vph9j</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAEmHLrFyjT7hB8MMVNzs37woo-AUmdwZs</string>
+	<key>GCM_SENDER_ID</key>
+	<string>19508386122</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.softwareLabAssignment</string>
+	<key>PROJECT_ID</key>
+	<string>software-lab-ab027</string>
+	<key>STORAGE_BUCKET</key>
+	<string>software-lab-ab027.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:19508386122:ios:1935d50930a578c85209b3</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -45,5 +89,22 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+
+	<!-- Put me in the [my_project]/ios/Runner/Info.plist file -->
+<!-- Google Sign-in Section -->
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<!-- TODO Replace this value: -->
+				<!-- Copied from GoogleService-Info.plist key REVERSED_CLIENT_ID -->
+				<string>com.googleusercontent.apps.19508386122-tsohkro0rfei7eiciocb2ccprg0vph9j</string>
+			</array>
+		</dict>
+	</array>
+<!-- End of the Google Sign-in Section -->
 </dict>
 </plist>

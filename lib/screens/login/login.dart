@@ -177,8 +177,7 @@ class _LoginPageState extends State<LoginPage> {
                             // ignore: use_build_context_synchronously
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
-                                content: Text(
-                                    response),
+                                content: Text(response),
                                 backgroundColor: Colors.grey[200],
                               ),
                             );
@@ -223,11 +222,53 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 _buildSocialButton(
-                    'assets/google.png', height / 20, width / 10, () => {}),
+                  'assets/google.png',
+                  height / 20,
+                  width / 10,
+                  () async {
+                    final apiService = ApiService();
+
+                    try {
+                      await apiService.signInWithGoogle();
+                      Navigator.push(
+                        // ignore: use_build_context_synchronously
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const HomePage(),
+                        ),
+                      );
+                    } catch (e) {
+                      // ignore: use_build_context_synchronously
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('Error: $e')),
+                      );
+                    }
+                  },
+                ),
+                _buildSocialButton('assets/apple.png', height / 20, width / 10,
+                    () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Apple signin not available')),
+                  );
+                }),
                 _buildSocialButton(
-                    'assets/apple.png', height / 20, width / 10, () => {}),
-                _buildSocialButton(
-                    'assets/facebook.png', height / 20, width / 10, () => {}),
+                    'assets/facebook.png', height / 20, width / 10, () async {
+                  final apiService = ApiService();
+
+                  try {
+                    await apiService.signInWithFacebook();
+                    Navigator.push(
+                      // ignore: use_build_context_synchronously
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const HomePage(),
+                      ),
+                    );
+                  } catch (e) {
+                    // ignore: use_build_context_synchronously
+                    print(e);
+                  }
+                }),
               ],
             ),
           ],

@@ -46,7 +46,7 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
     if (_currentIndex == _pages.length - 1) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (_) => const LoginPage()),
+        MaterialPageRoute(builder: (_) => LoginPage()),
       );
     } else {
       _pageController.nextPage(
@@ -172,7 +172,7 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            const LoginPage()),
+                                            LoginPage()),
                                   );
                                 },
                                 child: const Text(

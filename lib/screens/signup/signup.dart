@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:software_lab_assignment/components/input_box.dart';
+import 'package:software_lab_assignment/screens/home/home.dart';
 import 'package:software_lab_assignment/screens/login/login.dart';
 import 'package:software_lab_assignment/screens/signup/farm_info.dart';
 import 'package:software_lab_assignment/models/signup_model.dart';
+import 'package:software_lab_assignment/services/api_service.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -52,12 +54,52 @@ class _SignUpState extends State<SignUp> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    _buildSocialButton('assets/google.png', height / 20,
-                        width / 10, () => {}),
-                    _buildSocialButton('assets/apple.png', height / 20,
-                        width / 10, () => {}),
-                    _buildSocialButton('assets/facebook.png', height / 20,
-                        width / 10, () => {}),
+                    _buildSocialButton(
+                        'assets/google.png', height / 20, width / 10, () async {
+                      final apiService = ApiService();
+
+                      try {
+                        await apiService.signInWithGoogle();
+                        Navigator.push(
+                          // ignore: use_build_context_synchronously
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const HomePage(),
+                          ),
+                        );
+                      } catch (e) {
+                        // ignore: use_build_context_synchronously
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text('Error: $e')),
+                        );
+                      }
+                    }),
+                    _buildSocialButton(
+                        'assets/apple.png', height / 20, width / 10, () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                            content: Text('Apple signin not available')),
+                      );
+                    }),
+                    _buildSocialButton(
+                        'assets/facebook.png', height / 20, width / 10,
+                        () async {
+                      final apiService = ApiService();
+
+                      try {
+                        await apiService.signInWithFacebook();
+                        Navigator.push(
+                          // ignore: use_build_context_synchronously
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const HomePage(),
+                          ),
+                        );
+                      } catch (e) {
+                        // ignore: use_build_context_synchronously
+                        print(e);
+                      }
+                    }),
                   ],
                 ),
                 SizedBox(height: height / 25),
@@ -66,8 +108,8 @@ class _SignUpState extends State<SignUp> {
                   children: [
                     Text(
                       'or sign up with',
-                      style: TextStyle(
-                          fontSize: 10, color: Colors.grey.shade500),
+                      style:
+                          TextStyle(fontSize: 10, color: Colors.grey.shade500),
                     ),
                   ],
                 ),
@@ -131,7 +173,7 @@ class _SignUpState extends State<SignUp> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const LoginPage(),
+                        builder: (context) => LoginPage(),
                       ),
                     );
                   },

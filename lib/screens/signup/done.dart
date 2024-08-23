@@ -64,7 +64,7 @@ class _SignUpDoneState extends State<SignUpDone> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const LoginPage(),
+                          builder: (context) => LoginPage(),
                         ),
                       );
                   },

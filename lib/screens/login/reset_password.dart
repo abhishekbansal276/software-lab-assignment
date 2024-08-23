@@ -42,7 +42,7 @@ class _ResetPasswordState extends State<ResetPassword> {
       Navigator.pushReplacement(
         // ignore: use_build_context_synchronously
         context,
-        MaterialPageRoute(builder: (context) => const LoginPage()),
+        MaterialPageRoute(builder: (context) => LoginPage()),
       );
     } catch (e) {
       // ignore: use_build_context_synchronously
@@ -80,7 +80,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const LoginPage(),
+                    builder: (context) => LoginPage(),
                   ),
                 );
               },
